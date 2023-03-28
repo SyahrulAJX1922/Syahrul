@@ -1,0 +1,66 @@
+html{
+    cursor: all-scroll;
+}
+body{
+    background-image: url("keren.jpg");
+    background: linear-gradient(to right ,#d40909,#0bd826,#ffd700);
+    font-family: batmanforeveroutline;
+}
+.clock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: cyan;
+    font-size: 90px;
+    box-shadow: 1px 1px 10px;
+    padding: 0px 5px 0px 5px;
+    width: 40%;
+    height: 130px;
+    line-height: 130px;
+    text-align: center;
+    text-shadow: 5px 5px 5px blue;
+    background: linear-gradient(to right, #805,#099);
+    border-radius: 30px;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jam digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="myclock" class="clock"></div>
+    <script>
+        function showTime(){
+            var date= new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            var session ="AM";
+
+            if(h>=12){
+                h=h-12;
+                session ="PM";
+            }
+            if(h==0){
+                h=12;
+            }
+
+            h=(h<10)? "0" + h:h;
+            m=(m<10)? "0" + m:m;
+            s=(s<10)? "0" + s:s;
+            var time = h + ":"+ m + ":"+ s+ " "+session;
+            document.getElementById("myclock").innerText = time;
+            document.getElementById("myclock").textContent = time;
+
+            setTimeout(showTime,1000);
+        
+        
+        }
+        showTime();
+    </script>
+</body>
+</html>
